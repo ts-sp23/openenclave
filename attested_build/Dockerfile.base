@@ -1,0 +1,13 @@
+FROM ubuntu:20.04
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && \
+    apt-get install -y build-essential linux-headers-generic linux-headers-5.4.0-1091-azure ninja-build libssl-dev
+
+COPY . /root/scripts
+WORKDIR /root/scripts
+
+# Should setup dependencies automatically
+RUN ansible/install-ansible.sh
+RUN ansible-playbook ansible/oe-contributors-acc-setup-no-driver.yml

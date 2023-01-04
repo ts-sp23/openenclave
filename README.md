@@ -1,3 +1,5 @@
+**This fork of OpenEnclave adds a Dockerfile to build OE in an attested build container. See the attested_build folder for details**
+
 Open Enclave SDK
 ================
 
